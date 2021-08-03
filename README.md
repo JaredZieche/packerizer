@@ -10,7 +10,7 @@ Before running this role via Packer, ansible needs to be installed using the she
       {
         "type": "shell",
         "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-        "script": "scripts/ansible.sh"
+        "script": "../scripts/setup.sh"
       },
       {
         "type": "ansible-local",
