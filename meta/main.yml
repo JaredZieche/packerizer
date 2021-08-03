@@ -1,0 +1,23 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: packerizer
+  author: jaredzieche
+  description: packer configuration for different linux distributions.
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.9
+  platforms:
+    - name: EL
+      versions:
+        - 7
+        - 8
+  galaxy_tags:
+    - cloud
+    - system
+    - packaging
+    - development
+    - packer
+    - rhel
+    - redhat
+    - el
