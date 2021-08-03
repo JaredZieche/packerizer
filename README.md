@@ -6,7 +6,6 @@ This role is intended for use with [Packer](http://www.packer.io/) to configure 
 
 Before running this role via Packer, ansible needs to be installed using the shell provisioner. VM configuration (like adding a vagrant user to the appropriate group and the sudoers file) can be accomlplished with a Kickstart installation file (e.g. `kickstart.cfg`) using Packer. An example packer json file that wil call scripts and ansible roles based on your configuration:
 
-    ```json
     "provisioners": [
       {
         "type": "shell",
@@ -19,7 +18,6 @@ Before running this role via Packer, ansible needs to be installed using the she
         "galaxy_file": "../ansible/requirements.yml"
       }
       ]
-    ```
 
 ## Role Variables
 
