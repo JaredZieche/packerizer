@@ -1,6 +1,6 @@
-- name: "Include {{ ansible_os_family }} Vars"
+- name: "Include {{ ansible_os_family }}{{ ansible_distribution_major_version }} Vars"
   include_vars:
-    file: "{{ ansible_os_family }}.yml"
+    file: "{{ ansible_os_family }}{{ ansible_distribution_major_version }}.yml"
 
 - name: Ensure necessary packages are installed.
   yum:
