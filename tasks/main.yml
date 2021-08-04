@@ -1,13 +1,4 @@
 ---
-- name: Get the current kernel release.
-  command: uname -r
-  changed_when: false
-  register: kernel_release
-
-- name: "Include {{ ansible_os_family }} Tasks"
-  include_tasks:
-    file: "{{ ansible_os_family }}.yml"
-
 # Vagrant SSH configuration.
 - name: Configure Vagrant .ssh directory.
   file:
@@ -25,20 +16,10 @@
     group: vagrant
     mode: 0600
 
-# VirtualBox tools installation.
-- name: Check if VirtualBox is running the guest VM.
-  stat: path=/home/vagrant/.vbox_version
-  register: virtualbox_check
+- name: "Include {{ ansible_os_family }}{{ ansible_distribution_major_version }} Vars"
+  include_vars:
+    file: "{{ ansible_os_family }}{{ ansible_distribution_major_version }}.yml"
 
-- include_tasks: virtualbox.yml
-  when: virtualbox_check.stat.exists
-
-# VMware tools installation.
-- name: Check if VMWare is running the guest VM.
-  shell: "cat /proc/scsi/scsi | grep VMware"
-  changed_when: false
-  failed_when: false
-  register: vmware_check
-
-- include_tasks: vmware.yml
-  when: vmware_check.rc == 0
+- name: "Include {{ ansible_os_family }} Tasks"
+  include_tasks:
+    file: "{{ ansible_os_family }}.yml"
