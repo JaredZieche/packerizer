@@ -2,6 +2,11 @@
   include_vars:
     file: "{{ ansible_os_family }}{{ ansible_distribution_major_version }}.yml"
 
+- name: Get the current kernel release.
+  command: uname -r
+  changed_when: false
+  register: kernel_release
+
 - name: Ensure necessary packages are installed.
   yum:
     name: "{{ packages }}"
