@@ -1,0 +1,12 @@
+packages:
+  - wget
+  - perl-interpreter
+  - cpp
+  - gcc
+  - make
+  - bzip2
+  - kernel-headers
+  - kernel-devel
+  - "kernel-devel-{{ kernel_release.stdout }}"
+  - python3-libselinux
+  - elfutils-libelf-devel

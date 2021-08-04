@@ -4,7 +4,7 @@
 
 - name: Ensure necessary packages are installed.
   yum:
-    name: "{{ ansible_os_family }}{{ ansible_distribution_major_version }}_packages"
+    name: "{{ packages }}"
     state: present
 
 # Fix slow DNS.
